@@ -4,20 +4,23 @@ class Program
 {
     static void Main()
     {
-      SUB feed(BYREF state, BYREF size)
-      size  size + 1
-      OUTPUT "Fish fed" 
-      IF size = 5 THEN 
-      state  "FISH" 
-      ENDIF
-      ENDSUB
- 
-   thisFishState  "Fish" 
-   thisFishSize  1
-   OUTPUT thisFishState, " is of size ", thisFishSize
-WHILE thisFishState <> "FISH"
-   feed(thisFishState, thisFishSize)
-ENDWHILE
-OUTPUT "It is now a big ", thisFishState
+      string thisFishState = "Fish";
+      int thisFishSize = 1;
+      System.Console.WriteLine($"{thisFishState} is of size {thisFishSize}");
+      while (thisFishState != "FISH")
+      {
+         Feed(ref thisFishState, ref thisFishSize);
+      }
+      Console.WriteLine($"It now a big {thisFishState}");
+
     }
+static void Feed(ref string state, ref int size)
+{
+   size = size + 1;
+   System.Console.WriteLine("fish fed");
+   if (size == 5)
+   {
+      state = "FISH";
+   }
+}
 }
